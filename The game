@@ -1,0 +1,184 @@
+#include <iostream>
+
+using namespace std;
+
+bool win(char a, char* l){
+    bool b;
+    if ((l[0] == a && l[1] == a && l[2] == a) || (l[3] == a && l[4] == a && l[5] == a) || (l[6] == a && l[7] == a && l[8] == a) || (l[0] == a && l[4] == a && l[8] == a) || (l[2] == a && l[4] == a && l[6] == a) || (l[0] == a && l[3] == a && l[6] == a) || (l[1] == a && l[4] == a && l[7] == a) || (l[2] == a && l[5] == a && l[8] == a)){
+        b = 1;
+    } else {
+        b = 0;
+    }
+    return b;
+}
+
+bool cat(char* l){
+    bool b = 1;
+    for (int i = 0; i < 9; i++) {
+        if (l[i] == '-'){
+            b = 0;
+            break;
+        }
+    }
+    return b;
+}
+
+int main(){
+    string s;
+    int p;
+    string play;
+    cout<<"Will O or X start first?" << endl;
+    for (int i = 0; i < 1;) {
+        std::cin >> s;
+        if(s == "X" || s == "x"){
+            p = 2;
+            i = 1;
+        } else if (s == "O" || s == "o"){
+            p = 1;
+            i = 1;
+        } else {
+            cout << "Please insert a proper character." << endl;
+        }
+    }
+    if (p == 1) {
+        cout << "Okay, O will start" << endl;
+    } else if (p == 2){
+        cout << "Okay, X will start" << endl;
+    }
+    char spot [9] = {'-', '-', '-', '-', '-', '-', '-', '-', '-'};
+    for (int j = 0; j < 1;) {
+        cout << "   1     2     3" << endl;
+        cout << "      |     |     " << endl;
+        cout << "a  " << spot[0] << "  |  " << spot[1] << "  |  " << spot[2] << "  " << endl;
+        cout << " _____|_____|_____" << endl;
+        cout << "      |     |     " << endl;
+        cout << "b  " << spot[3] << "  |  " << spot[4] << "  |  " << spot[5] << "  " << endl;
+        cout << " _____|_____|_____" << endl;
+        cout << "      |     |     " << endl;
+        cout << "c  " << spot[6] << "  |  " << spot[7] << "  |  " << spot[8] << "  " << endl;
+        cout << "      |     |     " << endl;
+        if (p % 2 != 0){
+            cout << "Player O, please enter a space" << endl << "Player O: ";
+        } else if (p % 2 == 0){
+            cout << "Player X, please enter a space" << endl << "Player X: ";
+        }
+        for (int i = 0; i < 1;) {
+            cin >> play;
+            if (play == "a1") {
+                if(spot[0] == '-'){
+                    i++;
+                    if (p % 2 != 0){
+                        spot[0] = 'O';
+                    } else if (p % 2 == 0){
+                        spot[0] = 'X';
+                    }
+                } else {
+                    cout << "That space is taken!" << endl;
+                }
+            } else if (play == "a2"){
+                if(spot[1] == '-'){
+                    i++;
+                    if (p % 2 != 0){
+                        spot[1] = 'O';
+                    } else if (p % 2 == 0){
+                        spot[1] = 'X';
+                    }
+                } else {
+                    cout << "That space is taken!" << endl;
+                }
+            } else if (play == "a3"){
+                if(spot[2] == '-'){
+                    i++;
+                    if (p % 2 != 0){
+                        spot[2] = 'O';
+                    } else if (p % 2 == 0){
+                        spot[2] = 'X';
+                    }
+                } else {
+                    cout << "That space is taken!" << endl;
+                }
+            } else if (play == "b1"){
+                if(spot[3] == '-'){
+                    i++;
+                    if (p % 2 != 0){
+                        spot[3] = 'O';
+                    } else if (p % 2 == 0){
+                        spot[3] = 'X';
+                    }
+                } else {
+                    cout << "That space is taken!" << endl;
+                }
+            } else if (play == "b2"){
+                if(spot[4] == '-'){
+                    i++;
+                    if (p % 2 != 0){
+                        spot[4] = 'O';
+                    } else if (p % 2 == 0){
+                        spot[4] = 'X';
+                    }
+                } else {
+                    cout << "That space is taken!" << endl;
+                }
+            }  else if (play == "b3"){
+                if(spot[5] == '-'){
+                    i++;
+                    if (p % 2 != 0){
+                        spot[5] = 'O';
+                    } else if (p % 2 == 0){
+                        spot[5] = 'X';
+                    }
+                } else {
+                    cout << "That space is taken!" << endl;
+                }
+            } else if (play == "c1"){
+                if(spot[6] == '-'){
+                    i++;
+                    if (p % 2 != 0){
+                        spot[6] = 'O';
+                    } else if (p % 2 == 0){
+                        spot[6] = 'X';
+                    }
+                } else {
+                    cout << "That space is taken!" << endl;
+                }
+            }  else if (play == "c2"){
+                if(spot[7] == '-'){
+                    i++;
+                    if (p % 2 != 0){
+                        spot[7] = 'O';
+                    } else if (p % 2 == 0){
+                        spot[7] = 'X';
+                    }
+                } else {
+                    cout << "That space is taken!" << endl;
+                }
+            }  else if (play == "c3"){
+                if(spot[8] == '-'){
+                    i++;
+                    if (p % 2 != 0){
+                        spot[8] = 'O';
+                    } else if (p % 2 == 0){
+                        spot[8] = 'X';
+                    }
+                } else {
+                    cout << "That space is taken!" << endl;
+                }
+            } else {
+                cout << "Please insert a proper response." << endl;
+            }
+        }
+        p++;
+        if (win('X', spot)){
+            j++;
+            cout << "Congrats! Player X won!" << endl;
+        } else if (win('O', spot)){
+            j++;
+            cout << "Congrats! Player O won!" << endl;
+        }
+        if (cat(spot) && j == 0){
+            j++;
+            cout << "Cat's game! Meow!" << endl;
+        }
+    }
+    return 0;
+}
